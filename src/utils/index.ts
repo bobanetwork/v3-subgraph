@@ -77,7 +77,7 @@ export function convertTokenToDecimal(tokenAmount: BigInt, exchangeDecimals: Big
 }
 
 export function convertEthToDecimal(eth: BigInt): BigDecimal {
-  return eth.toBigDecimal().div(exponentToBigDecimal(18))
+  return eth.toBigDecimal().div(exponentToBigDecimal(BigInt.fromU64(18)))
 }
 
 export function loadTransaction(event: ethereum.Event): Transaction {
@@ -87,7 +87,9 @@ export function loadTransaction(event: ethereum.Event): Transaction {
   }
   transaction.blockNumber = event.block.number
   transaction.timestamp = event.block.timestamp
-  transaction.gasUsed = event.transaction.gasUsed
+  // each block only has one transaction
+  // the block gas used is the transaction gas used
+  transaction.gasUsed = event.block.gasUsed
   transaction.gasPrice = event.transaction.gasPrice
   transaction.save()
   return transaction as Transaction
