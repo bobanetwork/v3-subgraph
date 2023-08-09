@@ -4,24 +4,24 @@ import { Bundle, Pool, Token } from './../types/schema'
 import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
 import { exponentToBigDecimal, safeDiv } from '../utils/index'
 
-const WETH_ADDRESS = '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000'
+const WETH_ADDRESS = '0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000'
 const USDC_WETH_03_POOL = '0xb1ed67e29b2497404a2ac7f2a2989c3328ec2999'
 
 // token where amounts should contribute to tracked volume and liquidity
 // usually tokens that many tokens are paired with s
 export let WHITELIST_TOKENS: string[] = [
   WETH_ADDRESS, // WETH
-  '0x5DE1677344D3Cb0D7D465c10b72A8f60699C062d', // USDT
-  '0xf74195Bb8a5cf652411867c5C2C5b8C2a402be35', // DAI
-  '0x66a2A913e447d6b4BF33EFbec43aAeF87890FBbc', // USDC
-  '0xa18bF3994C0Cc6E3b63ac420308E5383f53120D7', // BOBA
-  '0xdc0486f8bf31DF57a952bcd3c1d3e166e3d9eC8b', // WBTC
+  '0x5de1677344d3cb0d7d465c10b72a8f60699c062d', // USDT
+  '0xf74195bb8a5cf652411867c5c2c5b8c2a402be35', // DAI
+  '0x66a2a913e447d6b4bf33efbec43aaef87890fbbc', // USDC
+  '0xa18bf3994c0cc6e3b63ac420308e5383f53120d7', // BOBA
+  '0xdc0486f8bf31df57a952bcd3c1d3e166e3d9ec8b', // WBTC
 ]
 
 let STABLE_COINS: string[] = [
-  '0x5DE1677344D3Cb0D7D465c10b72A8f60699C062d', // USDT
-  '0xf74195Bb8a5cf652411867c5C2C5b8C2a402be35', // DAI
-  '0x66a2A913e447d6b4BF33EFbec43aAeF87890FBbc', // USDC
+  '0x5de1677344d3cb0d7d465c10b72a8f60699c062d', // USDT
+  '0xf74195bb8a5cf652411867c5c2c5b8c2a402be35', // DAI
+  '0x66a2a913e447d6b4bf33efbec43aaef87890fbbc', // USDC
 ]
 
 let MINIMUM_ETH_LOCKED = BigDecimal.fromString('10')
